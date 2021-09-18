@@ -7,22 +7,21 @@
 
 import SwiftUI
 
+
 struct CustomSlider: UIViewRepresentable {
+    static let thumbImage = UIImage(systemName: "circle.fill")?.withTintColor(.red)
+    
     @Binding var currentValue: Float
     let alpha: CGFloat
+    
+    
+    
     
     func makeUIView(context: Context) -> UISlider {
         let slider = UISlider()
         slider.maximumValue = 100
         slider.minimumValue = 0
-        slider.thumbTintColor = .red
-        guard let image = slider.currentThumbImage?.getImageWithAlpha(alpha) else { return UISlider() }
-        slider.setThumbImage(image, for: .highlighted)
-        slider.setThumbImage(image, for: .normal)
-        
-        
-        
-        slider.alpha = alpha
+        setThumbAlpha(slider: slider)
         slider.addTarget(context.coordinator, action: #selector(Coordinator.sliderValueChanged(sender:)), for: .valueChanged)
         return slider
     }
@@ -30,15 +29,17 @@ struct CustomSlider: UIViewRepresentable {
     
     
     func updateUIView(_ uiView: UISlider, context: Context) {
-        guard let image = uiView.currentThumbImage?.getImageWithAlpha(alpha) else { return }
+        setThumbAlpha(slider: uiView)
         uiView.value = Float(currentValue)
-        uiView.setThumbImage(image, for: .normal)
-        uiView.setThumbImage(image, for: .highlighted)
-        print(alpha)
     }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(value: $currentValue)
+    }
+    
+    private func setThumbAlpha(slider: UISlider) {
+        slider.setThumbImage(CustomSlider.thumbImage?.getImageWithAlpha(alpha), for: .highlighted)
+        slider.setThumbImage(CustomSlider.thumbImage?.getImageWithAlpha(alpha), for: .normal)
     }
     
 }
@@ -60,7 +61,7 @@ extension CustomSlider {
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomSlider(currentValue: .constant(0.5), alpha: 0.3)
+        CustomSlider(currentValue: .constant(0.5), alpha: 0.5)
     }
 }
 
@@ -75,4 +76,5 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return newImage
     }
+    
 }

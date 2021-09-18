@@ -13,6 +13,7 @@ struct ContentView: View {
     @State var alertPresented = false
     
     var body: some View {
+
         VStack {
             Text("Подвиньте слайдер ближе к числу: \(lround(Double(target)))")
                 .padding()
