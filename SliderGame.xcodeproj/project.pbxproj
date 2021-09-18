@@ -11,6 +11,7 @@
 		F94C386526F627F7002496C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C386426F627F7002496C2 /* ContentView.swift */; };
 		F94C386726F627FE002496C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F94C386626F627FE002496C2 /* Assets.xcassets */; };
 		F94C386A26F627FE002496C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F94C386926F627FE002496C2 /* Preview Assets.xcassets */; };
+		F94C387226F62A26002496C2 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C387126F62A26002496C2 /* CustomSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		F94C386626F627FE002496C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F94C386926F627FE002496C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F94C386B26F627FE002496C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F94C387126F62A26002496C2 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				F94C386226F627F7002496C2 /* SliderGameApp.swift */,
 				F94C386426F627F7002496C2 /* ContentView.swift */,
+				F94C387126F62A26002496C2 /* CustomSlider.swift */,
 				F94C386626F627FE002496C2 /* Assets.xcassets */,
 				F94C386B26F627FE002496C2 /* Info.plist */,
 				F94C386826F627FE002496C2 /* Preview Content */,
@@ -140,6 +143,7 @@
 			files = (
 				F94C386526F627F7002496C2 /* ContentView.swift in Sources */,
 				F94C386326F627F7002496C2 /* SliderGameApp.swift in Sources */,
+				F94C387226F62A26002496C2 /* CustomSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
