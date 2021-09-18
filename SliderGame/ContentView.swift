@@ -17,8 +17,11 @@ struct ContentView: View {
         VStack {
             Text("Подвиньте слайдер ближе к числу: \(lround(Double(target)))")
                 .padding()
-            CustomSlider(currentValue: $current, alpha: CGFloat( computeScore())/100)
-                .padding()
+            HStack {
+                Text("0").padding()
+                CustomSlider(currentValue: $current, alpha: CGFloat( computeScore())/100)
+                Text("100").padding()
+            }
             Button("Проверь меня") {
                 alertPresented = true
             }.padding()

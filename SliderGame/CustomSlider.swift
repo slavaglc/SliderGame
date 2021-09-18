@@ -9,13 +9,10 @@ import SwiftUI
 
 
 struct CustomSlider: UIViewRepresentable {
-    static let thumbImage = UIImage(systemName: "circle.fill")?.withTintColor(.red)
+    static private let thumbImage = UIImage(systemName: "circle.fill")?.withTintColor(.red)
     
     @Binding var currentValue: Float
     let alpha: CGFloat
-    
-    
-    
     
     func makeUIView(context: Context) -> UISlider {
         let slider = UISlider()
@@ -25,8 +22,6 @@ struct CustomSlider: UIViewRepresentable {
         slider.addTarget(context.coordinator, action: #selector(Coordinator.sliderValueChanged(sender:)), for: .valueChanged)
         return slider
     }
-    
-    
     
     func updateUIView(_ uiView: UISlider, context: Context) {
         setThumbAlpha(slider: uiView)
@@ -38,10 +33,10 @@ struct CustomSlider: UIViewRepresentable {
     }
     
     private func setThumbAlpha(slider: UISlider) {
+        
         slider.setThumbImage(CustomSlider.thumbImage?.getImageWithAlpha(alpha), for: .highlighted)
         slider.setThumbImage(CustomSlider.thumbImage?.getImageWithAlpha(alpha), for: .normal)
     }
-    
 }
 
 extension CustomSlider {
@@ -59,11 +54,6 @@ extension CustomSlider {
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomSlider(currentValue: .constant(0.5), alpha: 0.5)
-    }
-}
 
 extension UIImage {
 
@@ -76,5 +66,10 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return newImage
     }
-    
+}
+
+struct SwiftUIView_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomSlider(currentValue: .constant(0.5), alpha: 0.5)
+    }
 }
